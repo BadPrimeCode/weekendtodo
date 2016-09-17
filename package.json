@@ -1,0 +1,26 @@
+{
+  "name": "weekendproject4",
+  "version": "1.0.0",
+  "description": "crud todo list",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/serverside.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IanColdwater/weekendtodo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "pg": "^6.1.0"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/IanColdwater/weekendtodo/issues"
+  },
+  "homepage": "https://github.com/IanColdwater/weekendtodo#readme"
+}
