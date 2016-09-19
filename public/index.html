@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Weekend Project 4</title>
       <script src="vendors/jquery-3.1.0.min.js" charset="utf-8"></script>
-      <script src="scripts/clientside.js" charset="utf-8"></script>
+      <script src="scripts/client.js" charset="utf-8"></script>
       <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body>
@@ -12,12 +12,13 @@
       <h1>To Do List</h1>
       <div class="list">
         <span class="create">
-          <input type="text" id="taskIn" value="" placeholder="What do you have to do?">
-          <button id="submitButton">Submit</button>
+          <input type="text" id="textIn" value="" placeholder="What do?">
+          <button class="createButton">This!</button>
         </span>
-        <span class="display"></span>
-        <button class="delete"></button>
-        <span class="completed"></span>
+        <span class="display">
+        <span id="current"></span>
+        <span id="completed"></span>
+        </span>
       </div>
     </div>
   </body>

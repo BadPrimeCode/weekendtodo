@@ -1,6 +1,8 @@
-git 
-
 .completed {
   text-decoration: line-through;
   color: rgb(32, 200, 38);
+}
+
+.deleteButton {
+  display: none;
 }
