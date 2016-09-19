@@ -24,6 +24,7 @@ $(document).ready(function(){
   // complete button click
   $('body').on('click', '.completeButton', function(){
     console.log(('complete button clicked'));
+    $(this).attr('id').addClass('completed');
     var completedToDo=completeToDo();
     $.ajax({
       url: '/completeToDo',
