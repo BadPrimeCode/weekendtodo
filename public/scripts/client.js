@@ -24,7 +24,6 @@ $(document).ready(function(){
   // complete button click
   $('body').on('click', '.completeButton', function(){
     console.log(('complete button clicked'));
-    $(this).attr('id').addClass('completed');
     var completedToDo=completeToDo();
     $.ajax({
       url: '/completeToDo',
@@ -52,7 +51,7 @@ $(document).ready(function(){
         listToDos();
       } //end success
     }); //end ajax call
-  }; // end delete button
+  }); // end delete button
 }); // end document ready
 
 // display todos
@@ -89,14 +88,14 @@ var listToDos = function(){
           // if completed
           case (true):
             var completed = $('<div />', {class: 'completed'}).append('To Do: ' + text + '<br>').append(deleteButton);
-            $('.display').append(completed);
+            $('.display').append(completedToDo);
             break;
           // else
           default:
             var completeButton = $('<button />', {
               class: 'completeButton',
               id: id,
-              text: 'Completed!'
+              text: 'Complete!'
             });
             var outstanding = $('<div />', {class: 'outstanding'}).append('To Do: ' + text + '<br>').append(completeButton).append(deleteButton);
             $('.display').append(outstanding);
@@ -119,23 +118,23 @@ var createToDo = function(){
 }; // end createToDo
 
 // update todo complete
-var completeToDo = function(){
+var completeToDo = function(id){
   console.log('in completeToDo');
-  var toDone = $(this).attr('id');
+  var id = $(this).attr('id');
   // assemble completed todo object
   var completedToDo = {
-    'id': Number(toDone)
+    'id': id
   };
   return completedToDo;
-}); // end complete button
+}; // end complete button
 
 // delete todo from database
 var deleteTodo = function(){
   console.log('in deleteTodo');
-  var toGone = $(this).attr('id');
+  var id = $(this).attr('id');
   // assemble deleted todo object
   var deletedToDo = {
-    'id': Number(toGone)
+    'id': id
   };
   return deletedToDo;
-}); // end delete button
+}; // end delete button

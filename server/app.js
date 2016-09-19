@@ -54,11 +54,12 @@ app.route('/listToDos')
   }) // end list todos
 
   // add new todo
-  app.post(urlencodedParser, function(req, res){
-    console.log('/createToDo hit', req.body);
+  app.post('/createToDo', urlencodedParser, function(req, res){
+    console.log('/createToDo hit: ', req.body.text);
     // get text from client
     var text = req.body.text;
     // pg connect
+    console.log(text);
     pg.connect(connectionString, function(err, client, done){
       if(err){
         console.log('error in create');
@@ -66,15 +67,15 @@ app.route('/listToDos')
         console.log('connected to create');
         console.log(text);
         // put in database
-        client.query('INSERT INTO todo (text) VALUES ($1)', [text]);
+        client.query('INSERT INTO todo(text) VALUES($1)', [text]);
         res.send({success: true});
       }
     }); // end pg connect
   }) // end new todo
 
   // complete todo
-  app.put(urlencodedParser, function(req, res){
-    console.log('/completeToDo hit', req.body);
+  app.put('/completeToDo', urlencodedParser, function(req, res){
+    console.log('/completeToDo hit: ', req.body);
     // get id
     var id = req.body.id;
     // pg connect
@@ -91,8 +92,8 @@ app.route('/listToDos')
   }) // end complete todo
 
   // delete todo
-  app.delete(urlencodedParser, function(req, res){
-    console.log('/deleteToDo hit', req.body);
+  app.delete('/deleteToDo', urlencodedParser, function(req, res){
+    console.log('/deleteToDo hit: ', req.body);
     // get id
     var id = req.body.id;
     // pg connect
